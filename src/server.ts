@@ -25,11 +25,11 @@ export class Server implements IServer {
     };
 
     private middlewares() {
-        this.app.use('/api',this.routes);
-        this.app.use(cors());
-        this.app.use(morgan('dev'));
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(cors());
+        this.app.use(morgan('dev'));
+        this.app.use('/api',this.routes);
     };
 
     start() {

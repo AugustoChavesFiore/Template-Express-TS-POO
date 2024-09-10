@@ -1,5 +1,7 @@
 
 import { Request, Response, Router } from 'express';
+import { UsersRoutes } from '../users/user.routes';
+import { AuthRoutes } from '../auth/auth.routes';
 
 
 export class AppRouter {
@@ -11,9 +13,13 @@ export class AppRouter {
              res.send('Hello from Server whit Typescript and POO');
         });
 
+        router.use('/auth', AuthRoutes.routes);
+        router.use('/users', UsersRoutes.routes);
+        
+        
 
 
         return router;
    };
 
-}
+};
